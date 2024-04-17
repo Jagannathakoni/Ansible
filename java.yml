@@ -1,0 +1,7 @@
+---
+- hosts: webserver
+  remote_user: root
+  become: yes
+  tasks:
+    - name: installing java jdk11 and its dependencies
+      yum: name=java-1.8.0-openjdk-src-debug.x86_64 state=installed
