@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  remote_user: root
+  become: yes
+  - name: install python
+    yum: name=python state=installed
+    raw: yum -y install python
+    command: yum -y install python
