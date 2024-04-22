@@ -1,0 +1,12 @@
+---
+- hosts: webserver
+  remote_user: root
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Ensure selinux is set to permissive mode
+      lineinfile:
+        path: /etc/selinux/config
+        regexp: '^SELINUX='
+        line: SELINUX=test
+
