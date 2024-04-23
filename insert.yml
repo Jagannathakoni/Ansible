@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Insert new line into file
+    lineinfile:
+      path: /tmp/jaggu
+      line: This line is inserted by ansible master server

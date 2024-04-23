@@ -1,0 +1,12 @@
+---
+- hosts: webserver
+  remote_user: root
+  become: yes
+  tasks:
+    - name: download tomcat
+      get_url: url=https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.88/bin/apache-tomcat-9.0.88.tar.gz
+    - name: create tomcat folder
+      command: mkdir usr/local/tomcat
+    - name: extract archive
+      unarchive: src=/tmp/apache-tomcat-9.0.88.tar.gz dest=/usr/local/tomcat
+
